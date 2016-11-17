@@ -1,12 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: roman
- * Date: 17.11.16
- * Time: 9:57
- */
-
 namespace App;
 
 class Db
@@ -26,12 +19,15 @@ class Db
         return $res;
     }
 
-    public function query($sql)
+    public function query($sql, $class)
     {
+        // Подготовка запроса
         $sth = $this->dbh->prepare($sql);
+        // Выполнение подготовленного запроса
         $res = $sth->execute();
         if (false !== $res) {
-            return $sth->fetchAll();
+            // Задаем режим возвращаемых данных
+            return $sth->fetchAll(\PDO::FETCH_CLASS, $class);
         }
         return [];
     }
