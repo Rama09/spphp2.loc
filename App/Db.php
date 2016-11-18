@@ -11,7 +11,7 @@ class Db
         $this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=spphp2.loc', 'root', '1234');
     }
 
-    public function execute($sql)
+    public function execute($sql, array $options = [])
     {
         $sth = $this->dbh->prepare($sql);
         $res = $sth->execute();
