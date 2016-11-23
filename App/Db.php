@@ -2,7 +2,7 @@
 
 namespace App;
 
-class Db extends Singleton 
+class Db extends Singleton
 {
     protected $dbh;
 
@@ -11,10 +11,10 @@ class Db extends Singleton
         $this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=spphp2.loc', 'root', '1234');
     }
 
-    public function execute($sql, array $options = [])
+    public function execute($sql, array $params = [])
     {
         $sth = $this->dbh->prepare($sql);
-        $res = $sth->execute();
+        $res = $sth->execute($params);
 
         return $res;
     }

@@ -2,7 +2,8 @@
 
 require __DIR__ . '/autoload.php';
 
-$news = \App\Models\News::findLast(3, 'id');
-
-include_once "App/Views/news/news.php";
+$news = new \App\Models\News;
+$news->description = 'о111писание';
+$news->name = '111Новый заголовок';
+$news->save();
 
