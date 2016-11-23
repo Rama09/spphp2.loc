@@ -2,7 +2,7 @@
 
 namespace App;
 
-class Db
+class Db extends Singleton 
 {
     protected $dbh;
 

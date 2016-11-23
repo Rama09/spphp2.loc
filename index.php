@@ -6,4 +6,3 @@ $news = \App\Models\News::findLast(3, 'id');
 
 include_once "App/Views/news/news.php";
 
-var_dump($news);
