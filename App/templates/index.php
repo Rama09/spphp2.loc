@@ -19,10 +19,12 @@
 </head>
 <body>
 
-<?php foreach($this->users as $user) { ?>
+<?php foreach($news as $item) { ?>
 <div class="panel panel-default">
-    <div class="panel-heading"><?php echo $user->name ?></div>
-    <div class="panel-body"><?php echo $user->email ?></div>
+    <div class="panel-heading"><?php echo $item->name ?></div>
+    <div class="panel-body"><?php echo $item->description ?></div>
+    <div class="panel-body"><?php echo $item->text ?></div>
+    <div class="panel-body"><?php echo $item->author ?></div>
 </div>
 <?php } ?>
 

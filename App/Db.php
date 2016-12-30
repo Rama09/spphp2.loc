@@ -19,12 +19,12 @@ class Db extends Singleton
         return $res;
     }
 
-    public function query($sql, $class)
+    public function query($sql, $params, $class)
     {
         // Подготовка запроса
         $sth = $this->dbh->prepare($sql);
         // Выполнение подготовленного запроса
-        $res = $sth->execute();
+        $res = $sth->execute($params);
         if (false !== $res) {
             // Задаем режим возвращаемых данных
             return $sth->fetchAll(\PDO::FETCH_CLASS, $class);

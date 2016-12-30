@@ -13,6 +13,7 @@ abstract class Model
         $db = Db::instance();
         return $db->query(
             'SELECT * FROM ' . static::TABLE,
+            [],
             static::class
         );
     }
@@ -21,7 +22,8 @@ abstract class Model
     {
         $db = Db::instance();
         $data = $db->query(
-            'SELECT * FROM ' . static::TABLE . ' WHERE id=' . $id . ' LIMIT 1',
+            'SELECT * FROM ' . static::TABLE . ' WHERE id=:id LIMIT 1',
+            [':id' => $id],
             static::class
         );
         if (!empty($data))
@@ -34,7 +36,8 @@ abstract class Model
     {
         $db = new Db();
         $data = $db->query(
-            'SELECT * FROM ' . static::TABLE . ' ORDER BY ' . $sortable_field . ' DESC LIMIT ' . $amount,
+            'SELECT * FROM ' . static::TABLE . ' ORDER BY :sortable_field DESC LIMIT ' . $amount,
+            [':sortable_field' => $sortable_field],
             static::class
         );
         if (!empty($data))
