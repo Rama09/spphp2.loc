@@ -1,9 +1,8 @@
 <?php
 require __DIR__ . '/autoload.php';
 
-$view = new \App\View();
+$controller = new \App\Controllers\News();
 
-$view->title = 'Тайтл';
-$view->news = \App\Models\News::findAll();
+$action = isset($_GET['action']) ? $_GET['action'] : 'Index';
 
-$view->display(__DIR__ . '/App/templates/index.php');
+$controller->action($action);
