@@ -32,4 +32,15 @@ class News extends Model
         }
     }
 
+    public function __isset($name)
+    {
+        switch ($name) {
+            case 'author':
+                return !empty($this->author_id);
+                break;
+            default:
+                return false;
+        }
+    }
+
 }

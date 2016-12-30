@@ -24,7 +24,11 @@
     <div class="panel-heading"><?php echo $item->name ?></div>
     <div class="panel-body"><?php echo $item->description ?></div>
     <div class="panel-body"><?php echo $item->text ?></div>
-    <div class="panel-body"><?php echo $item->author ?></div>
+    <div class="panel-body">
+        <?php if(!empty($item->author)): ?>
+            Автор: <?php echo $item->author->name; ?>
+        <?php endif; ?>
+    </div>
 </div>
 <?php } ?>
 
